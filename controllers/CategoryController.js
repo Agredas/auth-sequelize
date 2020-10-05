@@ -5,7 +5,7 @@ const {
 const Op = Sequelize.Op;
 const CategoryController = {
     getAll(req, res) {
-        Category.findAll() //SELECT * FROM categories
+        Category.findAll() //SELECT * FROM categories;
             .then(categories => res.send(categories))
             .catch(error => {
                 console.error(error);
