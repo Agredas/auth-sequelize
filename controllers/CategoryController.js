@@ -23,10 +23,27 @@ const CategoryController = {
                     id: req.params.id
                 }
             })
-            .then(category => res.send(category))
+            .then(() => res.send({ message: 'Category successfully updated' }))
             .catch(error => {
                 console.error(error);
                 res.status(500).send({ message: 'There was a problem trying to update the category' })
+            })
+    },
+    delete(req, res) {
+        Category.destroy({
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then((rowsAffected) => {
+                if (!rowsAffected) {
+                    return res.send({ message: 'Category not found' })
+                }
+                res.send({ message: 'Category successfully removed' })
+            })
+            .catch(error => {
+                console.error(error);
+                res.status(500).send({ message: 'There was a problem trying to remove the category' })
             })
     }
 }
