@@ -1,7 +1,5 @@
 const express = require('express');
-const chalk = require('chalk');
-const bcrypt = require('bcryptjs');
-const { User } = require('./models');
+
 const usersRouter = require('./routes/users');
 const app = express();
 const PORT = 3000;
